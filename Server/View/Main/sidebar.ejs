@@ -1,0 +1,80 @@
+<aside id = sidebar>
+
+    <!--* User Profile -->
+    <div id="user_profile">
+
+        <h1 id = "username">@SiYan</h1>
+        <img id="settings_icon" src="/resources/icons/settings.png" alt="%">
+    </div>
+
+    <!--* Category -->
+    <div id="category">
+        <header id="cat_header">
+            <h3 id="cat_label">Category</h3>
+            <h1 id="add_button">+</h1>
+        </header>
+
+        <content id = "cat_content">
+            <div class="cat_list">
+                <span class = "cat_status" id = "status1"></span>
+                <h1 class ="cat_title">School Works</h1>  
+            </div>
+            <div class="cat_list">
+                <span class = "cat_status" id = "status2"></span>
+                <h1 class ="cat_title">Home Chores</h1>  
+            </div>
+            <div class="cat_list">
+                <span class = "cat_status" id = "status3"></span>
+                <h1 class ="cat_title">System Projects</h1>  
+            </div>
+            <div class="cat_list">
+                <span class = "cat_status" id = "status4"></span>
+                <h1 class ="cat_title">Free Lancing</h1>  
+            </div>
+
+        </content>
+    </div>
+
+    <!--* Controls -->
+    <div id = "controls">
+        <header id = "control_title">
+            <h1>Poetry About Self</h1>
+        </header>
+
+        <content id = "control_options">
+
+            <!-- STATUS -->
+            <div id="status_option">
+                <label id="control_label" for="options">Status :</label>
+                <span id = "control_status"></span>
+                <select id="control_options" name="options">
+                    <option class="control_values" value="option1">On Hold</option>
+                    <option class="control_values" value="option1">To do</option>
+                    <option class="control_values" value="option2">Finished</option>
+                    <option class="control_values" value="option4">Unfinished</option>
+                    <option class="control_values" value="option3">For Revision</option>
+                </select>
+            </div>
+
+            <!-- CONTROL CATEGORY -->
+            <div id="category_options">
+                <label id="controlcat_label" for="options">Category : </label>
+                <select id="controlcat_select" name="options">
+                    <option class="control_catval" value="option1">School Works</option>
+                    <option class="control_catval" value="option1">Home Chores</option>
+                    <option class="control_catval" value="option2">System Projects</option>
+                    <option class="control_catval" value="option4">Free Lancing</option>
+                </select>
+            </div>
+
+            <!-- BUTTONS -->
+            <div id = "control_buttons">
+                <button class="button_shape" id = "delete_button">Delete</button>
+                <button class="button_shape" id = "Edit_button">Edit</button>
+            </div>
+
+        </content>
+
+    </div>
+
+</aside>

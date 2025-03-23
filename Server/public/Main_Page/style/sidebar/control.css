@@ -1,0 +1,205 @@
+#controls{
+    width: 90%;
+    height: 30%;
+    min-height: 200px;
+    outline: 1px;
+    border: 1px solid black;
+
+    filter: drop-shadow(0px 10px 10px rgba(119, 118, 118, 0.984));
+    box-sizing: border-box;
+    background: rgba(39, 88, 129, 0.679);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+
+    /* HEADER */
+    #control_title{
+        width: 100%;
+        height: 25%;
+        padding: 0 15px;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: center;
+        
+        border-bottom: 1px solid black;
+        box-sizing: border-box;
+        
+        font-family: var(--font-family);
+        
+        h1::before{
+            font-weight: 300;
+            font-size: 1.5rem;
+            content: "Title :";
+            margin-right: 20px;
+            color:rgb(0, 255, 255);
+        }
+        h1{
+            font-weight: 200;
+            font-size: 1rem;
+            color:rgb(255, 255, 255);
+        }
+    }
+
+    /* CONTENT */
+    #control_options{
+        width: 100%;
+        height: 75%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+
+        box-sizing: border-box;
+        
+        font-family: var(--font-family);
+
+        /* STATUS */
+        #status_option{
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            align-items: center;
+
+            width: 100%;
+            height: 20%;
+            padding: 0 15px;
+            box-sizing: border-box;
+            outline: 0;
+            margin: 5px;
+
+            #control_label{
+                font-family: var(--font-family);
+                color: white;
+                font-weight: 200;
+            }
+            
+            .control_values{
+                font-family: var(--font-family);
+                font-size: 0.8rem;
+                font-weight: 400;
+            }
+
+            #control_options{
+                width: 40%;
+                height: 100%;
+                border: 0;
+
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+
+                color: rgb(0, 0, 0);
+                background-color: transparent;
+                cursor: pointer;
+            }
+    
+            #control_status{
+                width: 15px;
+                height: 15px;
+                margin: 0 5px 0 15px;
+                
+                box-sizing: border-box;
+                background-color: green;
+                border-radius: 100%;
+                border: 1px solid black;
+            }
+        }
+    
+        /* CATEGORY */
+        #category_options{
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            align-items: center;
+
+            width: 100%;
+            height: 20%;
+            padding: 0 15px;
+            box-sizing: border-box;
+            outline: 0;
+            margin: 5px;
+            
+            #controlcat_label{
+                font-family: var(--font-family);
+                color: white;
+                font-weight: 200;
+            }
+            
+            .control_catval{
+                font-family: var(--font-family);
+                font-size: 0.8rem;
+                font-weight: 400;
+            }
+
+            #controlcat_select{
+                width: 50%;
+                height: 60%;
+                margin: 0 10px;
+                padding-left: 10px;
+                border: 1px solid black;
+
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+
+                color: rgb(0, 0, 0);
+                background-color: rgb(223, 225, 226);
+                border-radius: 20px;
+                font-size: 12px;
+                font-weight: 600;
+                cursor: pointer;
+
+            }
+
+        }
+
+        /* BUTTONS */
+        #control_buttons{
+            width: 100%;
+            height: 50%;
+            margin-top: 5%;
+    
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+
+            .button_shape{
+                width: 35%;
+                height: 60%;
+                border-radius: 10px;
+                outline: 0;
+                border: 1px solid black;
+
+                color: black;
+                font-family: var(--font-family);
+                font-weight: 400;
+                font-size: 1rem;
+                cursor: pointer;
+
+                transition: 0.5s ease;
+            }
+            .button_shape:hover{
+                transform: scale(1.1);
+                font-weight: 600;
+                font-size: 1.2rem;
+            }
+
+            #delete_button{
+                background-color: rgb(246, 132, 132);
+            }
+            #Edit_button{
+                background-color: rgb(169, 178, 247);
+            }
+        }
+
+    }
+
+}
+

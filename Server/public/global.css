@@ -1,0 +1,15 @@
+:root{
+    --font-family: poppins, arial;
+    --font-size: 16px;
+    --primary-color: rgb(196, 142, 244);
+    --tertiary-color: rgb(245, 238, 251);
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+
+    margin: 0px;
+    padding: 0px;
+    background-color: var(--tertiary-color);
+}
