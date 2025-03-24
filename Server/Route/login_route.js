@@ -13,17 +13,22 @@ const login = express.Router();
 
 
 //* CONTROLLER
+import { user_exist, verify_password } from '../Controller/Authentication/loginController.js'
+import { openSession, destroySession } from '../Controller/Authentication/sessionController.js';
 
 
 login.route('/')
     // render page
-    .get((req, res)=>{
+    .get(destroySession, (req, res)=>{
         res.render('Entry/login_page');
     })
 
     // Authenticate
-    .post((req, res)=>{
+    .post(user_exist, verify_password, openSession, (req, res, next)=>{
 
+        console.log("Logged in\n\n");
+
+        res.send("STATUS 200");
     })
 
 

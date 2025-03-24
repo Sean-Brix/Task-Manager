@@ -12,9 +12,10 @@ import cookieParser from 'cookie-parser';
 //* Configuration
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const PORT = process.env.PORT || 8000;
 dotenv.config();
 colors.enable();
+const PORT = process.env.PORT || 8000;
+const cookie_expire = process.env.COOKIE_EXP || (1000 * 60 * 60 * 24)
 
 
 //* Database
@@ -46,7 +47,11 @@ app.use(session({
     saveUninitialized: false,
     resave: false,
     secret: process.env.SECRET || 'temporary code',
-    cookie: {secure: false, httpOnly: true}
+    cookie: {
+      secure: false, 
+      httpOnly: true,
+      maxAge: cookie_expire
+    }
 }));
 
 app.use(cors({
