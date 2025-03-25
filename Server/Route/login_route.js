@@ -28,7 +28,10 @@ login.route('/')
 
         console.log("Logged in\n\n");
 
-        res.send("STATUS 200");
+        res.status(200).json({
+            message: "User Successfully logged in",
+            authenticate: true
+        });
     })
 
 
