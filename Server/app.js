@@ -15,7 +15,7 @@ const __dirname = path.dirname(__filename);
 dotenv.config();
 colors.enable();
 const PORT = process.env.PORT || 8000;
-const cookie_expire = process.env.COOKIE_EXP || (1000 * 60 * 60 * 24)
+const cookie_expire = 1000 * 60 * 60 * 24
 
 
 //* Database

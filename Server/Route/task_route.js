@@ -15,13 +15,16 @@ const task = express.Router();
 task.route('/')
     // render page
     .get((req, res)=>{
+        console.log(req.session);
+        if(!req.session.authenticated){
+            return res.redirect('/login')
+        }
         res.render('Main/main_page');
+        
     })
 
     // Authenticate
-    .post((req, res)=>{
-
-    })
+    .post((req, res)=>{})
 
 
 export default task;

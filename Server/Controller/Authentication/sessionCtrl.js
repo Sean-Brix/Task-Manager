@@ -3,6 +3,7 @@ export async function openSession(req, res, next){
 
     try{ 
         req.session.account = req.account;
+        req.session.authenticated = true;
         next();
     }
     catch(e){

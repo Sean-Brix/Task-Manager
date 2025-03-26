@@ -1,49 +1,49 @@
-import express from 'express'
-import path from 'path'
-import { fileURLToPath } from 'url'
+import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
 
 //* Configuration
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-
 //* ___________ ROUTE ___________
 
 const login = express.Router();
 
-
 //* CONTROLLER
-import { user_exist, verify_password } from '../Controller/Authentication/loginController.js'
-import { openSession, destroySession } from '../Controller/Authentication/sessionController.js';
+import { user_exist, verify_password } from "../Controller/Authentication/loginCtrl.js";
+import { openSession, destroySession } from "../Controller/Authentication/sessionCtrl.js";
+import { server_filter, register_user } from '../Controller/Authentication/signupCtrl.js';
 
-
-login.route('/')
+login
+    .route("/")
     // render page
-    .get(destroySession, (req, res)=>{
-        res.render('Entry/login_page');
+    .get(destroySession, (req, res) => {
+        res.render("Entry/login_page");
     })
 
     // Authenticate
-    .post(user_exist, verify_password, openSession, (req, res, next)=>{
-
-        console.log("Logged in\n\n");
+    .post(user_exist, verify_password, openSession, (req, res, next) => {
 
         res.status(200).json({
             message: "User Successfully logged in",
-            authenticate: true
+            authenticate: true,
         });
-    })
+    });
 
-
-login.route('/register')
+login
+    .route("/register")
     // render page
-    .get((req, res)=>{
-        res.render('Entry/register_page');
+    .get((req, res) => {
+        res.render("Entry/register_page");
     })
 
     // Register Account
-    .post((req, res)=>{
-
-    })
+    .post(server_filter, register_user, (req, res) => {
+        res.status(201).json({
+          valid: true,
+          message: 'Account Successfully Registered!'
+        }) 
+    });
 
 export default login;

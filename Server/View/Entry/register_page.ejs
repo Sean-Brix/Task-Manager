@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Manager</title>
+    
+    <!--* STYLE -->
     <link rel="stylesheet" href="/global.css">
     <link rel="stylesheet" href="/Register_page/style/register.css">
+
+    <!--* SCRIPTS -->
+    <script src="/Register_page/scripts/signup.js" defer></script>
 
     <!-- *FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,9 +21,9 @@
     <content id = content>
 
         <h1 id = "SignUp_Label">Sign Up</h1>
-        <input class = "entry" type="text" placeholder="username">
-        <input class = "entry" type="password" placeholder="password">
-        <input class = "entry" type="password" placeholder="re-enter password">
+        <input id = "username_input" class = "entry" type="text" placeholder="username">
+        <input id = "password_input" class = "entry" type="password" placeholder="password">
+        <input id = "confirm_input" class = "entry" type="password" placeholder="re-enter password">
 
         <button id="register_button">Register</button>
         <p id = "login_link"><a href="/login">Login Account</a></p>
