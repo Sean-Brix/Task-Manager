@@ -15,22 +15,9 @@
         </header>
 
         <content id = "cat_content">
-            <div class="cat_list">
-                <span class = "cat_status" id = "status1"></span>
-                <h1 class ="cat_title">School Works</h1>  
-            </div>
-            <div class="cat_list">
-                <span class = "cat_status" id = "status2"></span>
-                <h1 class ="cat_title">Home Chores</h1>  
-            </div>
-            <div class="cat_list">
-                <span class = "cat_status" id = "status3"></span>
-                <h1 class ="cat_title">System Projects</h1>  
-            </div>
-            <div class="cat_list">
-                <span class = "cat_status" id = "status4"></span>
-                <h1 class ="cat_title">Free Lancing</h1>  
-            </div>
+
+            <!-- GENERATES ALL CATEGORY OF A USER -->
+            <%- include('./category/category_card') %>
 
         </content>
     </div>

@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-export const accountSchema = new mongoose.Schema({
+const accountSchema = new mongoose.Schema({
     username: {
         type: String,
         require: true,
