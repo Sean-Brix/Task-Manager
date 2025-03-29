@@ -1,6 +1,7 @@
 import accountModel from '../../Model/Account_Model/Account_index.js'
 import categoryModel from '../../Model/Category_Model/Category_Index.js'
 
+// CREATING NEW CATEGORY
 export async function saveCategory(req, res, next){
 
     try{
@@ -40,4 +41,29 @@ export async function saveCategory(req, res, next){
         });
     }
 
+}
+
+// UPDATING EXISTING CATEGORY
+export async function updateCategory(req, res, next){
+    try{
+        const category_id = req.params.id;
+        const data = req.body;
+
+        const updated = await categoryModel.updateCategory(category_id, data);
+
+        if(!updated){
+            throw new Error('Failure in updating the document.');
+        }
+
+        return res.status(200).json({
+            message: 'Title Successfully Updated'
+        })
+    }
+    catch(e){
+        console.log('ERROR: updateCategory function in categoryCtrl module \n\n' + e);
+        res.status(500).json({
+            message: 'Something went wrong, Restart?',
+            error: e
+        })
+    }
 }

@@ -91,6 +91,10 @@
             border-radius: 100%;
         }
         .cat_title{
+            width: 70%;
+            padding: 5px;
+            box-sizing: border-box;
+
             font-family: var(--font-family);
             font-size: 1rem;
             font-weight: 600;

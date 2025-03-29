@@ -16,16 +16,16 @@ async function addCategory(){
 
     // Parent
     const container = document.getElementById('cat_content');
-
+    
     // New Div
     const newCategory = document.createElement('div');
     newCategory.className = 'cat_list';
     newCategory.setAttribute('data-category-id', property.id);
+    newCategory.setAttribute('id', property.id);
     
     // New Status Color
     const newStatus = document.createElement('span');
     newStatus.className = 'cat_status';
-    newStatus.setAttribute('id', property.id);
     newStatus.style.backgroundColor = property.color;
     
     // New Title
@@ -37,5 +37,9 @@ async function addCategory(){
     newCategory.appendChild(newTitle);
     container.appendChild(newCategory);
 
+    // Edit function
+    newCategory.addEventListener('dblclick', ()=> {editCategory(property.id)});
 
+    // Immediately on edit mode
+    editCategory(property.id);
 }

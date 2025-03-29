@@ -6,8 +6,10 @@ export function addStatics(schema){
     }
 
     schema.statics.byName = async function(name){
+
         const userID = await this.exists({username: name});
         return this.find({_id: userID});
+        
     }
 
 }

@@ -11,7 +11,7 @@
 
     #username{
         font-family: var(--font-family);
-        font-size: 1.5rem;
+        font-size: 1.2rem;
 
         margin-left: 20px;
         cursor: pointer;
