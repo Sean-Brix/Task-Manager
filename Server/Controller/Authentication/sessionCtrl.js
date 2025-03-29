@@ -2,20 +2,23 @@
 export async function openSession(req, res, next){
 
     try{ 
-        req.session.account = req.account;
-        req.session.authenticated = true;
+        req.session.accountID = req.account._id
+
         next();
     }
     catch(e){
+        console.log('Error on openSession Middle Ware: Session destroyed, Failure in generating session\n\n' + e);
         req.session.destroy((err)=>{
             if(err){
                 return res.status(500).json({
-                    message: "Function openSession catch error on module sessionController failed to destroy session"
+                    message: "Function openSession catch error on module sessionController failed to destroy session",
+                    authenticated: false
                 })
             }
             res.status(500).json({
                 message: "Error on openSession Middle Ware: Session destroyed, Failure in generating session",
-                error: e
+                error: e,
+                authenticated: false
             })
         });
     }

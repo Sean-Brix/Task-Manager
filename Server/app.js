@@ -7,6 +7,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import session from "express-session";
 import cookieParser from 'cookie-parser';
+import DBStore from 'connect-mongo';
 
 
 //* Configuration
@@ -47,6 +48,10 @@ app.use(session({
     saveUninitialized: false,
     resave: false,
     secret: process.env.SECRET || 'temporary code',
+    store: DBStore.create({
+      mongoUrl: 'mongodb://127.0.0.1:27017/TaskManager',
+      collectionName: 'Sessions'
+    }),
     cookie: {
       secure: false, 
       httpOnly: true,

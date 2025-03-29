@@ -1,6 +1,6 @@
 
 <% for(let i = 0; i < card.length; i++){ %>
-    <div class="cat_list">
+    <div class="cat_list" data-category-id = "<%= card[i].objectID %>" >
         <span class = "cat_status" id = "<%= "status"+(i+1) %>" > </span>
         <h1 class ="cat_title"><%= card[i].title %></h1>  
     </div>

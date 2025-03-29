@@ -18,7 +18,6 @@ export async function user_exist(req, res, next) {
     }
 
     const user_data = await accountModel.byName(user);
-    console.log(user_data[0]);
     req.account = user_data[0];
     next();
   } catch (e) {
@@ -27,6 +26,7 @@ export async function user_exist(req, res, next) {
 }
 
 export async function verify_password(req, res, next) {
+
   if (!(await bcrypt.compare(req.body.password, req.account.password))) {
 
     return res.status(401).json({
@@ -36,7 +36,5 @@ export async function verify_password(req, res, next) {
 
     });
   }
-
-  req.session.account = req.account;
   next();
 }

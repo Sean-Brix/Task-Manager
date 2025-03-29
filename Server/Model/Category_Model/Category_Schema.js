@@ -7,7 +7,6 @@ const category_schema = new mongoose.Schema({
         default: 'New Category'
     },
     color: {
-        type: String,
         hex: { type: String, default: "#808080" },
         rgb: { type: String, default: "rgb(128, 128, 128)" }
     },
@@ -18,8 +17,10 @@ const category_schema = new mongoose.Schema({
             note: {type: String, default: ""},
             status: { type: String, default: 'Todo' },
         },
+
     ],
     
 })
 
 export default category_schema;
+

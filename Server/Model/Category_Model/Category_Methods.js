@@ -8,8 +8,7 @@ export async function addMethods(schema){
     schema.methods.addTask = async function(new_tasks){
         try{
             await this.tasks.push(new_tasks);
-            await this.save();
-            return true;
+            return await this.save();
         }
         catch(e){
             console.log('ERROR: addTask method of Category_Schema Module, \n\n' + e);

@@ -8,4 +8,4 @@ import { addStatics } from "../Category_Model/Category_Statics.js"
 addStatics(schema);
 addMethods(schema);
 
-export default mongoose.Model('Categories', schema, 'Categories');
+export default mongoose.model('Categories', schema, 'Categories');

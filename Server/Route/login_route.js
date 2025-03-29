@@ -28,6 +28,7 @@ login
         res.status(200).json({
             message: "User Successfully logged in",
             authenticate: true,
+            account: req.session.accountID
         });
     });
 

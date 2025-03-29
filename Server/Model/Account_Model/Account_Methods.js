@@ -4,4 +4,8 @@ export function addMethods(schema){
         return this.user_type
     }
 
+    schema.methods.addCategory = async function(category){
+        return await this.tasks.push(category);
+    }
+
 }

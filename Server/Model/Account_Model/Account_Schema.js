@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import category_schema from "../Category_Model/Category_schema.js";
 
 const accountSchema = new mongoose.Schema({
     username: {
@@ -40,6 +41,10 @@ const accountSchema = new mongoose.Schema({
             default: null,
         }
     },
+    tasks: [{
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Categories'
+    }],
     user_type:{
         type: String,
         default: 'user'
