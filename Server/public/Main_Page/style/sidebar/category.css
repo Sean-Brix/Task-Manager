@@ -97,19 +97,5 @@
             cursor: pointer;
         }
 
-
-        /** JS Generated IDs */
-        #status1{
-            background-color: rgb(204, 0, 255);
-        }
-        #status2{
-            background-color: rgb(16, 190, 4);
-        }
-        #status3{
-            background-color: rgb(255, 174, 0);
-        }
-        #status4{
-            background-color: rgb(190, 4, 41);
-        }
     }
 }

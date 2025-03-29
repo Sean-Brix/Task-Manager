@@ -5,7 +5,16 @@ export function addMethods(schema){
     }
 
     schema.methods.addCategory = async function(category){
-        return await this.tasks.push(category);
+        try{
+
+            await this.tasks.push(category);
+            return this.save();
+
+        }
+        catch(e){
+            console.log('ERROR: addCategory method from Account_method module - \n\n'+e);
+            return false
+        }
     }
 
 }

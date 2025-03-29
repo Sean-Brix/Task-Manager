@@ -1,7 +1,7 @@
 
-<% for(let i = 0; i < card.length; i++){ %>
-    <div class="cat_list" data-category-id = "<%= card[i].objectID %>" >
-        <span class = "cat_status" id = "<%= "status"+(i+1) %>" > </span>
-        <h1 class ="cat_title"><%= card[i].title %></h1>  
+<% for(let i = 0; i < category.length; i++){ %>
+    <div class="cat_list" data-category-id = "<%= category[i]._id %>" >
+        <span class = "cat_status" id = "<%= category[i]._id %>" style= <%= "background-color:" + category[i].color +";"%> ></span>
+        <h1 class ="cat_title"><%= category[i].title %></h1>  
     </div>
 <% } %>

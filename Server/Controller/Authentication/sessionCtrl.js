@@ -1,8 +1,7 @@
-
 export async function openSession(req, res, next){
 
     try{ 
-        req.session.accountID = req.account._id
+        req.session.accountID = req.account._id;
 
         next();
     }

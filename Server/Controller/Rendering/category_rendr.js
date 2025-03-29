@@ -1,5 +1,9 @@
 import accountModel from '../../Model/Account_Model/Account_index.js'
 
-export async function renderCategory(){
-    // TODO: Create a function that takes in all the user category in the database and provide those data to the EJS
+export async function renderCategory(req, res, next){
+
+    // Retrieve all the task of the session user
+    const user = await accountModel.findById({_id: req.session.accountID}).select('tasks').populate('tasks');
+    res.render('Main/main_page', { category: user.tasks });
+
 }

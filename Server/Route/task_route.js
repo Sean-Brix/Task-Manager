@@ -16,24 +16,13 @@ const task = express.Router();
 
 task.route('/')
     // render page
-    .get((req, res)=>{
+    .get((req, res, next)=>{
 
         // TODO: You can add this to its own middleware so we can use a single authentication for every page and actions
-        console.log(req.session);
         if(!req.session.accountID){
             return res.redirect('/login')
         }
-
-        // ! REMEMBER TO MOVE THIS TO THE renderCategory function inside the category_rendr module
-        res.render('Main/main_page', {
-            card: [
-                {title:'School Works', objectID: 'sample'}, 
-                {title:'Programming', objectID: 'sample1'}, 
-                {title:'Commissions', objectID: 'sample2'}, 
-                {title:'House Chores', objectID: 'sample3'}
-            ]
-        });
-        
+        next()
     }, renderCategory)
 
     // Authenticate
@@ -49,7 +38,16 @@ task.route('/category')
 
     // Register new Category
     .post(saveCategory, (req, res)=>{
-        console.log('hello');
+        const data = req.newCategory;
+        console.log(data);
+        res.status(200).json({
+            category:{
+                title: data.title,
+                color: data.color,
+                id: data._id
+            },
+            message: "Category successfully added"
+        })
     })
 
 export default task;
