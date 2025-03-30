@@ -42,10 +42,12 @@ async function addCategory(){
     container.appendChild(newCategory);
 
     // Functions
+    newCategory.addEventListener('click', ()=>{selectCategory(property.id, property.color)})
     newCategory.addEventListener('dblclick', ()=> {editCategory(property.id)});
     newColorPicker.addEventListener('click', ()=>{chooseColor(property.id)});
     
 
     // Immediately on edit mode
+    selectCategory(property.id, property.color);
     editCategory(property.id);
 }

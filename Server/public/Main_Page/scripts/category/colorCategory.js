@@ -7,6 +7,10 @@ async function chooseColor(id){
 
     color_picker.addEventListener('input', ()=>{
         span.style.backgroundColor = color_picker.value;
+
+        //! FIX: When changing the color, the category cant be click again
+        div.removeAttribute('onclick');
+        div.addEventListener('click', selectCategory(id, color_picker.value))
     });
 
     color_picker.onblur = async function (){

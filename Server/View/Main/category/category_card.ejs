@@ -1,7 +1,7 @@
 
 <% for(let i = 0; i < category.length; i++){ %>
 
-    <div class="cat_list" data-category-id = "<%= category[i]._id %>" id = "<%= category[i]._id %>">
+    <div class="cat_list" data-category-id = "<%= category[i]._id %>" id = "<%= category[i]._id %>" onclick="selectCategory('<%= category[i]._id %>', '<%= category[i].color %>')">
 
         <span class = "cat_status" style= <%= "background-color:" + category[i].color +";"%> ></span>
 
