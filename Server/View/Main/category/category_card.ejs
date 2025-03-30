@@ -5,7 +5,10 @@
 
         <span class = "cat_status" style= <%= "background-color:" + category[i].color +";"%> ></span>
 
+        <input type="color" class = "color_picker" onclick="chooseColor('<%= category[i]._id %>')">
+
         <h1 class ="cat_title" ondblclick= "editCategory('<%= category[i]._id %>')" > <%= category[i].title %> </h1>  
+
 
     </div>
 

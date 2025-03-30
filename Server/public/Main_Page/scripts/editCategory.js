@@ -27,7 +27,7 @@ async function editCategory(id){
     title.onblur = async function(){
         title.setAttribute('contenteditable', 'false');
 
-        // TODO: Put Request for update
+        // Put Request for update
         const response = await fetch(`/main/category/${id}`, {
             method: 'PUT',
             headers: {

@@ -72,6 +72,7 @@
             flex-direction: row;
             justify-content: start;
             align-items: center;
+            position:  relative;
 
             cursor: pointer;
             transition: 0.2s ease-in;
@@ -90,6 +91,19 @@
             border: 1px solid black;
             border-radius: 100%;
         }
+
+        /* Hidden Color picker */
+        .color_picker{
+
+            position: absolute;
+            opacity: 0;
+            width: 18px;
+            height: 18px;
+            border-radius: 100%;
+            left: 15px;
+
+        }
+
         .cat_title{
             width: 70%;
             padding: 5px;
