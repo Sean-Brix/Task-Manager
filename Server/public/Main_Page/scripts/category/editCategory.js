@@ -37,6 +37,9 @@ async function editCategory(id){
                 title: title.innerText
             })
         })
+
+        // TODO: Handle the response
+
     }
 
 } 

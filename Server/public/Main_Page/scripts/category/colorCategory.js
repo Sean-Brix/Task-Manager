@@ -5,15 +5,13 @@ async function chooseColor(id){
     const color_picker = div.querySelector('input[type="color"]');
     const span = div.querySelector('span');
 
-    console.log('running');
-    color_picker.click();
-
     color_picker.addEventListener('input', ()=>{
         span.style.backgroundColor = color_picker.value;
     });
 
     color_picker.onblur = async function (){
 
+        // Put request to edit the category color
         const response = await fetch(`/main/category/${id}`, {
             method: 'PUT',
             headers: {
@@ -23,6 +21,7 @@ async function chooseColor(id){
                 color: color_picker.value
             })
 
+            // TODO: Handle the response
         })
     }
 }

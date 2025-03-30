@@ -11,7 +11,6 @@ async function addCategory(){
             return;
         }
     }
-    console.log(data.message);
     const property = data.category;
 
     // Parent
@@ -27,6 +26,10 @@ async function addCategory(){
     const newStatus = document.createElement('span');
     newStatus.className = 'cat_status';
     newStatus.style.backgroundColor = property.color;
+
+    const newColorPicker = document.createElement('input');
+    newColorPicker.className = 'color_picker';
+    newColorPicker.setAttribute('type', 'color');
     
     // New Title
     const newTitle = document.createElement('h1');
@@ -34,11 +37,14 @@ async function addCategory(){
     newTitle.textContent = property.title;
     
     newCategory.appendChild(newStatus);
+    newCategory.appendChild(newColorPicker);
     newCategory.appendChild(newTitle);
     container.appendChild(newCategory);
 
-    // Edit function
+    // Functions
     newCategory.addEventListener('dblclick', ()=> {editCategory(property.id)});
+    newColorPicker.addEventListener('click', ()=>{chooseColor(property.id)});
+    
 
     // Immediately on edit mode
     editCategory(property.id);

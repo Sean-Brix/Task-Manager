@@ -77,6 +77,7 @@
             cursor: pointer;
             transition: 0.2s ease-in;
         }
+        
         .cat_list:hover{
             transform: scale(1.04);
             border: 2px solid rgb(255, 255, 255);
@@ -91,7 +92,7 @@
             border: 1px solid black;
             border-radius: 100%;
         }
-
+        
         /* Hidden Color picker */
         .color_picker{
 
@@ -101,7 +102,7 @@
             height: 18px;
             border-radius: 100%;
             left: 15px;
-
+            
         }
 
         .cat_title{
