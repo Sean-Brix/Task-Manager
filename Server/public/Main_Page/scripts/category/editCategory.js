@@ -38,8 +38,8 @@ async function editCategory(id){
             })
         })
 
-        // TODO: Handle the response
-
+        const data = await response.json();
+        console.log(data.message);
     }
 
 } 

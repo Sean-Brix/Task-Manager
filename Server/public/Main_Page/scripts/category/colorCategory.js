@@ -1,9 +1,13 @@
 
+//! FIX: RIGHT CLICK DOESN'T UPDATE THE DATABASE
 async function chooseColor(id){
     const div = document.getElementById(id);
 
     const color_picker = div.querySelector('input[type="color"]');
+    color_picker.click();
+
     const span = div.querySelector('span');
+
 
     color_picker.addEventListener('input', ()=>{
         span.style.backgroundColor = color_picker.value;

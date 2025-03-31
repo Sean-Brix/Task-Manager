@@ -9,7 +9,7 @@ async function selectCategory(id){
 
     selected = id;
 
-    const response = await fetch(`/main/category/color?id=${id}&query=color`);
+    const response = await fetch(`/main/category/get?id=${id}&query=color`);
     const data = await response.json();
 
     const current = document.getElementById(id);

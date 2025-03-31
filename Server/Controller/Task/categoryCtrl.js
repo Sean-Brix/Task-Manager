@@ -74,3 +74,28 @@ export async function getCategory(req, res, next){
 
     res.status(200).json(data);
 }
+
+export async function deleteCategory(req, res, next){
+    try{
+        const category_id  = req.params.id;
+        const user_id = req.session.accountID;
+
+        // Delete Reference
+        await accountModel.removeCategory(user_id, category_id);
+
+        // Delete Category
+        const isDeleted = categoryModel.deleteCategory(category_id);
+        if(!isDeleted){
+            accountModel.addCategory(user_id, category_id)
+        }
+
+        res.status(204).end();
+    }
+    catch(e){
+        res.status(500).json({
+            message: 'Server Error, restart?',
+            error: e
+        })
+    }
+
+}

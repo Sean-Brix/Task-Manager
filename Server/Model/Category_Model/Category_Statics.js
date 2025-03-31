@@ -28,4 +28,14 @@ export async function addStatics(schema){
         return (await this.findOne({_id: id}).select('color')).color;
     }
 
+    // Delete a document
+    schema.statics.deleteCategory = async function(id){
+        try{
+            const document = await this.findByIdAndDelete(id);
+            return document ? document : false;
+        }
+        catch(e){
+            return false
+        }
+    }
 }

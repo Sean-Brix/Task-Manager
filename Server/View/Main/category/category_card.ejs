@@ -1,15 +1,45 @@
 
 <% for(let i = 0; i < category.length; i++){ %>
 
-    <div class="cat_list" data-category-id = "<%= category[i]._id %>" id = "<%= category[i]._id %>" onclick="selectCategory('<%= category[i]._id %>', '<%= category[i].color %>')">
+    <div 
+        class="cat_list" 
+        data-category-id = "<%= category[i]._id %>" 
+        id = "<%= category[i]._id %>" 
+        onclick="selectCategory('<%= category[i]._id %>', '<%= category[i].color %>')"
+        oncontextmenu="showMenu_Category(event, '<%= category[i]._id %>')"
+    >
 
-        <span class = "cat_status" style= <%= "background-color:" + category[i].color +";"%> ></span>
+        <!-- COLOR -->
+        <span 
+            class = "cat_status" 
+            style= <%= "background-color:" + category[i].color +";"%> 
+        ></span>
 
-        <input type="color" class = "color_picker" onclick="chooseColor('<%= category[i]._id %>')">
+        <!-- COLOR PICKER -->
+        <input 
+            type="color" 
+            class = "color_picker" 
+            onclick="chooseColor('<%= category[i]._id %>')"
+        >
 
-        <h1 class ="cat_title" ondblclick= "editCategory('<%= category[i]._id %>')" > <%= category[i].title %> </h1>  
+        <!-- TITLE -->
+        <h1 
+            class ="cat_title" 
+            ondblclick= "editCategory('<%= category[i]._id %>')" > 
 
+            <%= category[i].title %> 
+        </h1>  
+
+        <!-- Custom Right-Click Menu (Hidden by Default) -->
+        <div class="hidden-menu" id="menu_<%= category[i]._id %>">
+            <ul>
+                <li onclick="editCategory('<%= category[i]._id %>')">Edit Title</li>
+                <li onclick="chooseColor('<%= category[i]._id %>')">Change Color</li>
+                <li onclick="deleteCategory(event, '<%= category[i]._id %>')">Delete Category</li>
+            </ul>
+        </div>
 
     </div>
+
 
 <% } %>

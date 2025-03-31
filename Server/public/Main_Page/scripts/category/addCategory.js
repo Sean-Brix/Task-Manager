@@ -22,11 +22,24 @@ async function addCategory(){
     newCategory.setAttribute('data-category-id', property.id);
     newCategory.setAttribute('id', property.id);
     
+    // New Menu (right click)
+    const newMenu = document.createElement('div');
+    newMenu.className = 'hidden-menu'
+    newMenu.id = `menu_${property.id}`
+    newMenu.innerHTML = 
+        `<ul>
+            <li onclick="editCategory('${property.id}')">Edit Title</li>
+            <li onclick="chooseColor('${property.id}')">Change Color</li>
+            <li onclick="deleteCategory(event, '${property.id}')">Delete Category</li>
+        </ul>`
+    ;
+
     // New Status Color
     const newStatus = document.createElement('span');
     newStatus.className = 'cat_status';
     newStatus.style.backgroundColor = property.color;
 
+    // New Color Picker
     const newColorPicker = document.createElement('input');
     newColorPicker.className = 'color_picker';
     newColorPicker.setAttribute('type', 'color');
@@ -39,9 +52,11 @@ async function addCategory(){
     newCategory.appendChild(newStatus);
     newCategory.appendChild(newColorPicker);
     newCategory.appendChild(newTitle);
+    newCategory.appendChild(newMenu);
     container.appendChild(newCategory);
 
     // Functions
+    newCategory.addEventListener('contextmenu', ()=>{showMenu_Category(event, property.id)})
     newCategory.addEventListener('click', ()=>{selectCategory(property.id, property.color)})
     newCategory.addEventListener('dblclick', ()=> {editCategory(property.id)});
     newColorPicker.addEventListener('click', ()=>{chooseColor(property.id)});

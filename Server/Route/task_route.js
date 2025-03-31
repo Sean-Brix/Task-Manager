@@ -2,7 +2,7 @@ import express from 'express'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import { renderCategory } from '../Controller/Rendering/category_rendr.js' 
-import { saveCategory, updateCategory, getCategory } from '../Controller/Task/categoryCtrl.js';
+import { saveCategory, updateCategory, getCategory, deleteCategory } from '../Controller/Task/categoryCtrl.js';
 
 //* Configuration
 const __filename = fileURLToPath(import.meta.url);
@@ -39,7 +39,6 @@ task.route('/category')
     // Register new Category
     .post(saveCategory, (req, res)=>{
         const data = req.newCategory;
-        console.log(data);
         res.status(200).json({
             category:{
                 title: data.title,
@@ -55,6 +54,9 @@ task.route('/category')
 task.put('/category/:id', updateCategory);
 
 // Getting category
-task.get('/category/color', getCategory);
+task.get('/category/get', getCategory);
+
+// Delete Category
+task.delete('/category/delete/:id', deleteCategory);
 
 export default task;
