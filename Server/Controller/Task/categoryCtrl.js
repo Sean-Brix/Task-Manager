@@ -56,7 +56,7 @@ export async function updateCategory(req, res, next){
         }
 
         return res.status(200).json({
-            message: 'Title Successfully Updated'
+            message: 'Category Successfully Updated'
         })
     }
     catch(e){
@@ -66,4 +66,11 @@ export async function updateCategory(req, res, next){
             error: e
         })
     }
+}
+
+export async function getCategory(req, res, next){
+    const { id, query } = req.query;
+    const data = await categoryModel.findOne({_id: id}).select(`${query} -_id`);
+
+    res.status(200).json(data);
 }

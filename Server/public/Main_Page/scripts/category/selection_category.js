@@ -1,7 +1,7 @@
 
 let selected;
 
-async function selectCategory(id, color){
+async function selectCategory(id){
     const prev = document.getElementById(selected) || document.getElementById(id);
     prev.className = 'cat_list';
     prev.removeAttribute('style');
@@ -9,9 +9,10 @@ async function selectCategory(id, color){
 
     selected = id;
 
+    const response = await fetch(`/main/category/color?id=${id}&query=color`);
+    const data = await response.json();
+
     const current = document.getElementById(id);
     current.className = 'selected_category';
-    current.setAttribute('style', `-webkit-text-stroke: 0.5px black;`);
-    current.style.border = `2px solid ${color}`;
-    
+    current.style.border = `2px solid ${data.color}`;
 }

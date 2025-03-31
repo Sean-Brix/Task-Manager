@@ -2,7 +2,7 @@ import express from 'express'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import { renderCategory } from '../Controller/Rendering/category_rendr.js' 
-import { saveCategory, updateCategory } from '../Controller/Task/categoryCtrl.js';
+import { saveCategory, updateCategory, getCategory } from '../Controller/Task/categoryCtrl.js';
 
 //* Configuration
 const __filename = fileURLToPath(import.meta.url);
@@ -52,6 +52,9 @@ task.route('/category')
 
     
 // Updating Category
-task.put('/category/:id', updateCategory)
+task.put('/category/:id', updateCategory);
+
+// Getting category
+task.get('/category/color', getCategory);
 
 export default task;

@@ -22,4 +22,10 @@ export async function addStatics(schema){
             return false;
         }
     }
+
+    // Get color of an id
+    schema.statics.getColor = async function(id){
+        return (await this.findOne({_id: id}).select('color')).color;
+    }
+
 }

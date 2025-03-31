@@ -12,4 +12,8 @@ export function addStatics(schema){
         
     }
 
+    schema.statics.byID = async function(id){
+        return this.find({_id: id})
+    }
+
 }
