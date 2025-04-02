@@ -4,8 +4,18 @@ export async function renderCategory(req, res, next){
 
     // Retrieve all the category of the session user
     const user = await accountModel.findById({_id: req.session.accountID});
-    const tasks = await user.populate('tasks');
+    const data = await user.populate('tasks');
     
-    res.render('Main/main_page', { category: tasks.tasks, account: {username: user.username} });
+    // TODO: Start sending data the will be rendered initially
 
+
+
+    res.render('Main/main_page', 
+        {
+            category: data.tasks, 
+            account: {username: user.username},
+            initial: data.tasks[0]
+        });
+
+    console.log(data.tasks);
 }

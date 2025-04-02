@@ -1,0 +1,17 @@
+<% for(let i = 0; i <= initial.length; i++){ %>
+
+    <!-- TODO: Set up data fetching, add all variables related to the first category -->
+
+    <div class = "task_card" id = "task1">
+        <header class ="task_name">
+            <h1 class = "task_label">Poetry About Self</h1>
+        </header>
+
+        <div class ="task_notes">
+            <p><%= initial[i].notes %></p>
+        </div>
+
+        <span class="task_status" id = "task_status1"></span>
+    </div>
+
+<% } %>
