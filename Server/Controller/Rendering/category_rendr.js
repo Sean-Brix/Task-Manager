@@ -9,7 +9,6 @@ export async function renderCategory(req, res, next){
     // TODO: Start sending data the will be rendered initially
 
 
-
     res.render('Main/main_page', 
         {
             category: data.tasks, 
