@@ -6,9 +6,8 @@ import colors from "colors";
 import cors from "cors";
 import mongoose from "mongoose";
 import session from "express-session";
-import cookieParser from 'cookie-parser';
-import DBStore from 'connect-mongo';
-
+import cookieParser from "cookie-parser";
+import DBStore from "connect-mongo";
 
 //* Configuration
 const __filename = fileURLToPath(import.meta.url);
@@ -16,12 +15,10 @@ const __dirname = path.dirname(__filename);
 dotenv.config();
 colors.enable();
 const PORT = process.env.PORT || 8000;
-const cookie_expire = 1000 * 60 * 60 * 24
-
+const cookie_expire = 1000 * 60 * 60 * 24;
 
 //* Database
 mongoose.connect("mongodb://127.0.0.1:27017/TaskManager");
-
 
 //* Server
 const app = express();
@@ -34,37 +31,39 @@ app.listen(PORT, () => {
   );
 });
 
-
 //* Middleware
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.urlencoded({extended: true}));
+app.use(express.static(path.join(__dirname, "public")));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 
-app.set('views', path.join(__dirname, 'View'));
-app.set('view engine', 'ejs');
+app.set("views", path.join(__dirname, "View"));
+app.set("view engine", "ejs");
 
-app.use(session({
+app.use(
+  session({
     saveUninitialized: false,
     resave: false,
-    secret: process.env.SECRET || 'temporary code',
+    secret: process.env.SECRET || "temporary code",
     store: DBStore.create({
-      mongoUrl: 'mongodb://127.0.0.1:27017/TaskManager',
-      collectionName: 'Sessions'
+      mongoUrl: "mongodb://127.0.0.1:27017/TaskManager",
+      collectionName: "Sessions",
     }),
     cookie: {
-      secure: false, 
+      secure: false,
       httpOnly: true,
-      maxAge: cookie_expire
-    }
-}));
+      maxAge: cookie_expire,
+    },
+  })
+);
 
-app.use(cors({
-    origin: '*',
-    methods: ['POST', 'GET']
-}));
-
+app.use(
+  cors({
+    origin: "*",
+    methods: ["POST", "GET"],
+  })
+);
 
 //* Route
-import route from './Route/main_Route.js'
-app.use('/', route)
+import route from "./Route/main_Route.js";
+app.use("/", route);
